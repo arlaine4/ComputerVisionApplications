@@ -6,7 +6,7 @@ lst_tips = [0, 4, 8, 12, 16, 20]
 
 
 class HandDetector:
-    def __init__(self, mode=False, max_hands=2, min_det_conf=0.75, min_track_conf=0.6):
+    def __init__(self, mode=False, max_hands=2, min_det_conf=0.6, min_track_conf=0.5):
         self.mode = mode
         self.max_hands = max_hands
         self.detection_confidence = min_det_conf
@@ -41,6 +41,7 @@ class HandDetector:
                 lst_lms.append([id, cx, cy])
                 if draw:
                     cv2.circle(img, (cx, cy), 10, (0, 255, 0), cv2.FILLED)
+        print(lst_lms)
         return lst_lms, img
 
 def main_hand_tracking():
